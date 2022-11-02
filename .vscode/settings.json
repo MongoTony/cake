@@ -1,6 +1,8 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "files.associations": {
-        "list": "cpp"
+        "list": "cpp",
+        "schedule.h": "c",
+        "utils_list.h": "c"
     }
 }

@@ -14,21 +14,40 @@
 
 void utils_list_init(utils_list_t *list)
 {
-    list->head = list->tail = NULL;
-    list-> count = 0;
+    list->head = NULL;
+    list->tail = NULL;
+    list->count = 0;
 }
 
 void utils_list_push_back(utils_list_t *list, list_item_t *item)
 {
     if (list->count == 0) {
-        list->head = list->tail = item;
+        list->head = item;
+        list->tail = item;
         list->count++;
         return;
     }
 
     list->tail->next = item;
-    item->prev = list->tail;
     list->tail = item;
     list->count++;
     return;
+}
+
+list_item_t *utils_list_pop_front(utils_list_t *list)
+{
+    list_item_t *item = list->head;
+    if (list->count == 0) {
+        return NULL;
+    }else if (list->count == 1) {
+        list->tail = NULL;
+        list->head = NULL;
+    } else {
+        list->head = list->head->next;
+    }
+
+    item->next = NULL;
+    list->count--;
+
+    return item;
 }

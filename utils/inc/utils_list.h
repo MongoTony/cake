@@ -8,12 +8,13 @@
  * @copyright Copyright (c) 2022
  * 
  */
+#ifndef UTILS_LIST_H
+#define UTILS_LIST_H
 
 #include <stdint.h>
 
 typedef struct list_item{
     struct list_item *next;
-    struct list_item *prev;
 } list_item_t;
 
 typedef struct {
@@ -26,3 +27,6 @@ typedef struct {
 void utils_list_init(utils_list_t *list);
 
 void utils_list_push_back(utils_list_t *list, list_item_t *item);
+list_item_t *utils_list_pop_front(utils_list_t *list);
+
+#endif

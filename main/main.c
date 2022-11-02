@@ -10,6 +10,7 @@
  */
 
 #include <stdio.h>
+#include <unistd.h>
 #include "foo.h"
 #include "data_rx.h"
 #include "schedule.h"
@@ -17,7 +18,8 @@
 
 op_act_info_t g_init_func[10] = {
     [0] = {0, schedule_init},
-    [1] = {0, NULL}
+    [1] = {1, data_init},
+    [2] = {2, NULL}
 };
 
 op_act_info_t g_exit_func[10] = {
@@ -37,7 +39,7 @@ int main(char* argc, char** argv) {
 
     sys_op_fn(g_init_func);
 
-    schedule_run();
+    schedule_start();
 
     int num;
     while (scanf("%d", &num) != 0)
@@ -48,5 +50,7 @@ int main(char* argc, char** argv) {
     }
 
     sys_op_fn(g_exit_func);
+
+    // sleep(5);
     return 0;
 }

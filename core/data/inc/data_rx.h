@@ -11,6 +11,6 @@
 #ifndef DATA_RX_H
 #define DATA_RX_H
 
-int data_recv_msg();
+int data_init(void);
 
 #endif

@@ -14,6 +14,17 @@
 
 #include <pthread.h>
 #include <stdint.h>
+#include "utils_list.h"
+
+typedef int (*task_entry_t)(void *);
+
+typedef struct {
+    list_item_t *next;
+
+    uint16_t task_id;
+    task_entry_t func;
+    void *args;
+} task_t;
 
 typedef enum {
     SCHEDULE_STATE_INIT,
@@ -24,14 +35,22 @@ typedef enum {
 } shedule_state_t;
 
 typedef struct {
-    /* data */
     pthread_t pid;
     uint8_t state;
 
 
+    pthread_mutex_t task_mutex;
+    utils_list_t task_list;
+
+    pthread_mutex_t task_idx_mutex;
+    uint16_t task_idx;
+
 } schedule_context_t;
 
 int schedule_init(void);
-int schedule_run(void);
+int schedule_start(void);
 int schedule_exit(void);
+
+int schedule_task_init(task_entry_t func, void *args);
+
 #endif
