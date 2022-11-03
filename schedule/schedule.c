@@ -41,7 +41,6 @@ int schedule_init(void)
     memset(context, 0, sizeof(*context));
 
     pthread_mutex_init(task_mutex, NULL);
-    // pthread_mutex_init(task_idx_mutex, NULL);
 
     schedule_set_state(SCHEDULE_STATE_INIT);
 
@@ -70,7 +69,7 @@ int schedule_work()
     while (true) {
         // log_print(0, 0, "running[%u]!", schdule_get_state());
         schedule_task_proc();
-        sleep(2);
+        sleep(1);
     }
 }
 
@@ -91,7 +90,7 @@ int schedule_start(void)
     if (ret == 0) {
         log_print(0, 0, "sched create thread succ!");
         schedule_set_pid(pid);
-        schedule_set_state(SCHEDULE_STATE_WORK);        
+        schedule_set_state(SCHEDULE_STATE_WORK);
     } else {
         log_print(0, 0, "sched create thread fail!");
     }

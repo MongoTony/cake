@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -o3 -wall")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/output)
 
 # Add block directories
-add_subdirectory(core)
+add_subdirectory(modules)
 add_subdirectory(main)
 add_subdirectory(utils)
 add_subdirectory(schedule)
