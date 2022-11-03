@@ -3,6 +3,7 @@
     "files.associations": {
         "list": "cpp",
         "schedule.h": "c",
-        "utils_list.h": "c"
+        "utils_list.h": "c",
+        "main.h": "c"
     }
 }

@@ -69,7 +69,7 @@ int schedule_work()
     while (true) {
         // log_print(0, 0, "running[%u]!", schdule_get_state());
         schedule_task_proc();
-        sleep(1);
+        sleep(5);
     }
 }
 

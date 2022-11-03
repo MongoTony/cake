@@ -22,7 +22,12 @@ int data_recv_package(void *args)
     return 0;
 }
 
-int data_init(void)
+int data_task_init(void)
 {
     schedule_task_init(data_recv_package, NULL);
+}
+
+int data_init(void)
+{
+    data_task_init();
 }
