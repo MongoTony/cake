@@ -4,6 +4,7 @@
         "list": "cpp",
         "schedule.h": "c",
         "utils_list.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "type_traits": "c"
     }
 }

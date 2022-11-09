@@ -19,4 +19,6 @@ build() {
 }
 
 build
-../output/cake
+pwd
+cd ../output
+./cake

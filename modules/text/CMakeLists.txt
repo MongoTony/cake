@@ -1,4 +1,5 @@
 set(text_src_files
+    ${CMAKE_CURRENT_SOURCE_DIR}/doc.c
     ${CMAKE_CURRENT_SOURCE_DIR}/text.c
 )
 

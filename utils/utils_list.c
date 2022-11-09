@@ -10,7 +10,9 @@
  */
 
 #include <stddef.h>
+#include "utils_comm.h"
 #include "utils_list.h"
+#include "utils_log.h"
 
 void utils_list_init(utils_list_t *list)
 {
@@ -51,3 +53,26 @@ list_item_t *utils_list_pop_front(utils_list_t *list)
 
     return item;
 }
+
+void utils_list_clear(utils_list_t *list)
+{
+    list_item_t *item;
+    while (list->count > 0) {
+        item = utils_list_pop_front(list);
+        utils_free(item);
+    }
+}
+// #ifdef TEST_MODE
+
+void utils_list_travel(utils_list_t *list, list_item_op_cb_t func)
+{
+    // log_print(0,0,"list count[%u]", list->count);
+    list_item_t *item = list->head;
+    for (uint32_t i = 0; i < list->count; i++) {
+        if (func) {
+            func(item);
+        }
+        item = item->next;
+    }
+}
+// #endif

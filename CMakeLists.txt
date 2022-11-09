@@ -18,6 +18,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -o3 -wall")
 # 设置输出路径
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/output)
 
+# 设置预编译宏
+add_compile_definitions(TEST_MODE)
+
 # Add block directories
 add_subdirectory(modules)
 add_subdirectory(main)

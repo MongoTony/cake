@@ -14,18 +14,18 @@
 #include "schedule.h"
 #include "main.h"
 #include "data_rx.h"
-#include "text.h"
+#include "doc.h"
 
 op_act_info_t g_init_func[] = {
     [0] = {0, schedule_init},
-    [1] = {1, data_init},
-    [2] = {2, text_init},
-    [3] = {3, NULL}
+    [1] = {1, doc_init},
+    [2] = {2, NULL}
 };
 
 op_act_info_t g_exit_func[10] = {
     [0] = {0, schedule_exit},
-    [1] = {0, NULL}
+    [1] = {1, doc_exit},
+    [2] = {2, NULL}
 };
 
 int sys_op_fn(op_act_info_t *op_act)
@@ -46,7 +46,7 @@ int main(char* argc, char** argv) {
     while (scanf("%d", &num) != 0)
     {
         if (num == 0) {
-            break;;
+            break;
         }
     }
 
