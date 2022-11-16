@@ -9,4 +9,4 @@ set(utils_header_dir
     ${CMAKE_CURRENT_SOURCE_DIR}/inc
 )
 
-set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${utils_header_dir} CACHE PATH "utils header DIR" FORCE)
+set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${utils_header_dir} CACHE INTERNAL "utils header DIR" FORCE)

@@ -1,5 +1,5 @@
 set(data_src_files
-    ${CMAKE_CURRENT_SOURCE_DIR}/data_rx.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/data.c
 )
 
 set(CAKE_SRC_FILES ${CAKE_SRC_FILES} ${data_src_files} CACHE INTERNAL "data src files" FORCE)

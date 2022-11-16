@@ -14,6 +14,9 @@
 
 #include <stdlib.h>
 
+#define stat_inc(val) {++val;}
+#define stat_dec(val) {--val;}
+
 #define utils_malloc(len) malloc((size_t)(len))
 #define utils_free(p)    free((void*)p)
 

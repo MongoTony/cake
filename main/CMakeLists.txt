@@ -1,6 +1,5 @@
 set(main_src_files
     "${CMAKE_CURRENT_SOURCE_DIR}/main.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/foo.c"
 )
 
 set(CAKE_SRC_FILES ${CAKE_SRC_FILES} ${main_src_files} CACHE FILEPATH "main src files" FORCE)

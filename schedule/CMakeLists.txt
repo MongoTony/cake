@@ -9,4 +9,4 @@ set(sch_header_dir
     ${CMAKE_CURRENT_SOURCE_DIR}/inc
 )
 
-set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${sch_header_dir} CACHE PATH "data header DIR" FORCE)
+set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${sch_header_dir} CACHE PATH "sch header DIR" FORCE)

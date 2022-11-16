@@ -13,19 +13,21 @@
 #include <unistd.h>
 #include "schedule.h"
 #include "main.h"
-#include "data_rx.h"
+#include "data.h"
 #include "doc.h"
 
 op_act_info_t g_init_func[] = {
     [0] = {0, schedule_init},
     [1] = {1, doc_init},
-    [2] = {2, NULL}
+    [2] = {2, data_init},
+    [3] = {3, NULL}
 };
 
 op_act_info_t g_exit_func[10] = {
-    [0] = {0, schedule_exit},
+    [0] = {0, data_exit},
     [1] = {1, doc_exit},
-    [2] = {2, NULL}
+    [2] = {2, schedule_exit},
+    [3] = {3, NULL}
 };
 
 int sys_op_fn(op_act_info_t *op_act)
