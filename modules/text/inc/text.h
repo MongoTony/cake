@@ -18,6 +18,23 @@
 
 #define MAX_TEXT_NAME_SIZE 256
 #define MAX_LINE_CHAR_NUM 120
+#define MAX_WORD_SIZE 64
+
+typedef struct {
+    list_item_t *next;
+
+    uint32_t line_seq;      /* 单词所在行号 */
+    uint32_t times;         /* 本行出现次数*/
+
+} pos_info_t;
+typedef struct {
+    list_item_t *next;
+
+    char word[MAX_WORD_SIZE];
+    uint32_t count;
+    utils_list_t pos_info_list;
+
+} word_info_t;
 
 typedef struct {
     list_item_t *next;
@@ -32,10 +49,12 @@ typedef struct {
     FILE *ptr_file;
 
     utils_list_t line_list;
+    utils_list_t word_list;
+
 } text_info_t;
 
 int text_init(void);
 void text_deinit(void);
-void text_show(void);
+void text_ops(uint32_t op);
 
 #endif

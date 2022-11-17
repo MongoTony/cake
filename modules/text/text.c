@@ -19,6 +19,7 @@
 #define TEXT_FILE_NAME "./schedule.txt"
 text_info_t *g_text_info = NULL;
 
+
 //////////////////////////////////////////////////////////////////////////////////////
 #if 1
 text_info_t *text_alloc_text_info(char *file_full_name)
@@ -104,20 +105,6 @@ uint32_t text_read_lines(text_info_t *text_info)
     return 0;
 }
 
-void *text_print_line_info(void *args)
-{
-    line_info_t *line_info = (line_info_t *)args;
-    log_print_tab(0, 0, "[%.4u]%s", line_info->line_seq, line_info->str);
-    // sleep(1);
-    return NULL;
-}
-
-void text_print_lines(text_info_t *text_info)
-{
-    log_print(0, 0, "enter!");
-    utils_list_travel(&text_info->line_list, text_print_line_info);
-}
-
 int text_init_text_info(text_info_t *text_info)
 {
     if (text_info == NULL) {
@@ -177,10 +164,52 @@ void text_deinit(void)
     g_text_info = NULL;
 }
 
-void text_show(void)
+/**
+ * @brief text 操作功能接口, 打印，单词出现次数及行数统计等
+ * 
+ */
+
+void text_line_show(void *args)
+{
+    line_info_t *line_info = (line_info_t *)args;
+    log_print_tab(0, 0, "[%.4u]%s", line_info->line_seq, line_info->str);
+    // sleep(1);
+}
+
+static void line_str_replace(char *str, char c)
+{
+
+}
+void text_line_parse(void *args)
+{
+    line_info_t *line_info = (line_info_t *)args;
+    // char * tem_str = (char*)utils_malloc(line_info->str_len);
+    log_print(0, 0, "==TODO==");
+}
+
+typedef list_item_op_cb_t text_op_cb_t;
+text_op_cb_t *g_text_ops[] = {
+    [0] = text_line_show,
+    [1] = text_line_parse,
+};
+
+void text_ops(uint32_t op)
 {
     log_print(0, 0, "enter!");
-    if (g_text_info != NULL) {
-        text_print_lines(g_text_info);
+    if (g_text_info == NULL) {
+        log_print(0, 0, "g_text_info null!");
+        return;
     }
+
+    if (op >= sizeof(g_text_ops) / sizeof(g_text_ops[0])) {
+        log_print(0, 0, "op[%d] is over of value!", op);
+        return;   
+    }
+
+    if (g_text_ops[op] == NULL) {
+        log_print(0, 0, "op[%d] is not support yet!", op);
+        return;        
+    }
+
+    utils_list_travel(&g_text_info->line_list, g_text_ops[op]);
 }

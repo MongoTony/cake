@@ -1,5 +1,5 @@
 /**
- * @file doc.h
+ * @file document.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1

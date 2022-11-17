@@ -1,5 +1,5 @@
 /**
- * @file doc.c
+ * @file document.c
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -48,7 +48,7 @@ void data_chan_free(data_chan_t *data_chan)
     pool_free(&g_data_chan_pool, data_chan);
 }
 
-void data_chan_stat_show(void *arg)
+int data_chan_stat_show(void *arg)
 {
     log_print(0, 0, "malloc_chan_times : %u!", g_data_chan_stat.malloc_chan_times);
     log_print(0, 0, "free_chan_times   : %u!", g_data_chan_stat.free_chan_times);

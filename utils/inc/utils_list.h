@@ -32,7 +32,7 @@ list_item_t *utils_list_pop_front(utils_list_t *list);
 void utils_list_clear(utils_list_t *list);
 
 // #ifdef TEST_MODE
-typedef void *(list_item_op_cb_t)(void *);
+typedef void (list_item_op_cb_t)(void *);
 void utils_list_travel(utils_list_t *list, list_item_op_cb_t func);
 
 // #endif

@@ -1,5 +1,5 @@
 /**
- * @file doc.h
+ * @file document.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -9,9 +9,9 @@
  * 
  */
 
-#ifndef DOC_H
-#define DOC_H
+#ifndef DOCUMENT_H
+#define DOCUMENT_H
 
-int doc_init(void);
-int doc_exit(void);
+int document_init(void);
+int document_exit(void);
 #endif

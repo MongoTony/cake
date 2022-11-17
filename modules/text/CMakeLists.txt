@@ -1,6 +1,8 @@
 set(text_src_files
-    ${CMAKE_CURRENT_SOURCE_DIR}/doc.c
     ${CMAKE_CURRENT_SOURCE_DIR}/text.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/document.c
+
+
 )
 
 set(CAKE_SRC_FILES ${CAKE_SRC_FILES} ${text_src_files} CACHE INTERNAL "text src files" FORCE)
@@ -10,4 +12,4 @@ set(text_header_dir
     ${CMAKE_CURRENT_SOURCE_DIR}/inc
 )
 
-set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${text_header_dir} CACHE PATH "text header DIR" FORCE)
+set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${text_header_dir} CACHE INTERNAL "text header DIR" FORCE)
