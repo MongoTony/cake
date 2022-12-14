@@ -16,6 +16,6 @@
 
 #define log_print(mid, level, fmt, args...) printf("[%s]::" fmt "\r\n", __FUNCTION__, ##args)
 
-#define log_print_tab(mid, level, fmt, args...) printf(fmt "\r\n", ##args)
+#define log_print_tab(mid, level, fmt, args...) printf(fmt "", ##args)
 
 #endif

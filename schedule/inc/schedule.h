@@ -18,10 +18,19 @@
 
 typedef int (*task_entry_t)(void *);
 
+typedef enum {
+    TASK_PROPERTY_LOOP,
+    TASK_PROPERTY_ONCE,
+
+    TASK_PROPERTY_BUTT
+
+} task_property_t;
+
 typedef struct {
     list_item_t *next;
 
     uint16_t task_id;
+    uint16_t property;
     task_entry_t func;
     void *args;
 } task_t;

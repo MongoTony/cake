@@ -12,4 +12,4 @@ set(text_header_dir
     ${CMAKE_CURRENT_SOURCE_DIR}/inc
 )
 
-set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${text_header_dir} CACHE INTERNAL "text header DIR" FORCE)
+set(CAKE_INCLUDE_DIRS ${CAKE_INCLUDE_DIRS} ${text_header_dir} CACHE PATH "text header DIR" FORCE)

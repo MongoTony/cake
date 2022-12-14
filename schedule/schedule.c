@@ -67,9 +67,9 @@ int schedule_task_proc()
 int schedule_work()
 {
     while (true) {
-        // log_print(0, 0, "running[%u]!", schdule_get_state());
+        log_print(0, 0, "running[%u]!", schdule_get_state());
         schedule_task_proc();
-        sleep(5);
+        sleep(1);
     }
 }
 
@@ -80,6 +80,7 @@ void *schedule_entry(void *args)
     log_print(0, 0, "enter, state = [%u]!", schdule_get_state());
     //dead loop
     schedule_work();
+    // log_print(0, 0, "enter, state = [%u]!", schdule_get_state());
     return NULL;
 }
 
@@ -126,11 +127,12 @@ int schedule_task_init(task_entry_t func, void *args)
         return -1;
     }
 
+    memset(task, 0, sizeof(task_t));
     task->args = args;
     task->func = func;
     task->task_id = schedule_next_task_id();
     log_print(0, 0, "task[0x%x] task_id[0x%x]!", task, task->task_id);
-    
+    task->next = NULL;
     pthread_mutex_lock(task_mutex);
     utils_list_push_back(task_list, (list_item_t *)task);
     pthread_mutex_unlock(task_mutex);

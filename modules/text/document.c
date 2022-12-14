@@ -3,7 +3,7 @@
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
- * @date 2022-11-03
+ * @date 2022-12-15
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -34,7 +34,7 @@ int document_proc_log(void *args)
     obj_args->log_count++;
     log_print(0,0," document proc [%u] logs", obj_args->log_count);
 #else
-    text_ops(1);
+    text_ops(0);
 #endif
 
     return 0;

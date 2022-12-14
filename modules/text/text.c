@@ -9,6 +9,7 @@
  * 
  */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
@@ -173,18 +174,17 @@ void text_line_show(void *args)
 {
     line_info_t *line_info = (line_info_t *)args;
     log_print_tab(0, 0, "[%.4u]%s", line_info->line_seq, line_info->str);
-    // sleep(1);
+    sleep(1);
 }
 
 static void line_str_replace(char *str, char c)
 {
-
 }
 void text_line_parse(void *args)
 {
     line_info_t *line_info = (line_info_t *)args;
     // char * tem_str = (char*)utils_malloc(line_info->str_len);
-    log_print(0, 0, "==TODO==");
+    // log_print(0, 0, "==TODO==");
 }
 
 typedef list_item_op_cb_t text_op_cb_t;

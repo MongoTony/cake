@@ -6,6 +6,7 @@
         "utils_list.h": "c",
         "main.h": "c",
         "type_traits": "c",
-        "text.h": "c"
+        "utils_comm.h": "c",
+        "stdlib.h": "c"
     }
 }

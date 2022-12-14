@@ -13,13 +13,14 @@
 #define DATA_H
 
 #include <stdint.h>
+#include "utils_list.h"
 
 #define MAX_DATA_CHAN_SIZE 10
 
 typedef int (data_chan_cb_t)(void *);
 
 typedef struct {
-
+    list_item_t *next;
     data_chan_cb_t *cb;
 
 } data_chan_t;
