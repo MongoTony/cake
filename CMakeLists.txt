@@ -27,6 +27,7 @@ add_subdirectory(main)
 add_subdirectory(utils)
 add_subdirectory(schedule)
 add_subdirectory(pool)
+add_subdirectory(msg)
 
 include_directories(${CAKE_INCLUDE_DIRS})
 

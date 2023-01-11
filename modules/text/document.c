@@ -42,7 +42,7 @@ int document_proc_log(void *args)
 
 int document_task_init(void)
 {
-    schedule_task_init(g_document_obj.func, (void *)(&g_document_obj.args));
+    // schedule_task_init(g_document_obj.func, (void *)(&g_document_obj.args));
     return 0;
 }
 
